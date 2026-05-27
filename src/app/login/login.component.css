@@ -1,0 +1,414 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:host {
+  display: block;
+  font-family: "Inter", sans-serif;
+}
+
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* =========================
+   LEFT PANEL
+========================= */
+
+.left-panel {
+  width: 48%;
+  background: #050058;
+  color: white;
+  position: relative;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.left-panel::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50%;
+  top: 140px;
+  left: -80px;
+}
+
+.left-panel::after {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50%;
+  top: 220px;
+  left: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+}
+
+.logo-img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: transparent;
+  padding: 0;
+}
+
+.logo-text h3 {
+  font-size: 22px;
+  margin: 0;
+  letter-spacing: 0.6px;
+}
+
+.logo-text span {
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+@media (max-width: 1000px) {
+  .logo-img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .logo-text h3 {
+    font-size: 18px;
+  }
+
+  .logo-text span {
+    font-size: 11px;
+  }
+}
+
+.logo h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.logo span {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.content {
+  z-index: 2;
+  max-width: 460px;
+}
+
+.content h1 {
+  font-size: 44px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.content p {
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.security-card {
+  margin-top: 40px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 22px;
+  display: flex;
+  gap: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.shield-icon {
+  width: 45px;
+  height: 45px;
+  background: #1bc95a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.security-card h4 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.security-card p {
+  font-size: 13px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  z-index: 2;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+.links a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+}
+
+/* =========================
+   RIGHT PANEL
+========================= */
+
+.right-panel {
+  width: 52%;
+  background: #f4f5f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  width: 420px;
+}
+
+.form-container h2 {
+  text-align: center;
+  font-size: 38px;
+  color: #1e1e1e;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #7d7d7d;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #505050;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  border: none;
+  background: white;
+  height: 54px;
+  border-radius: 14px;
+  padding: 0 18px;
+  outline: none;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-with-icon input {
+  flex: 1;
+  padding-right: 12px;
+}
+
+.input-icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+input::placeholder {
+  color: #a7a7a7;
+}
+
+input:focus {
+  box-shadow: 0 8px 24px rgba(47,21,176,0.08);
+  border: 1px solid rgba(47,21,176,0.15);
+}
+
+.password-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.password-header a {
+  text-decoration: none;
+  color: #3026d9;
+  font-size: 13px;
+}
+
+.password-box {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.remember-row {
+  margin-bottom: 20px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-container input {
+  width: auto;
+  height: auto;
+}
+
+.checkbox-container span {
+  font-size: 14px;
+  color: #666;
+}
+
+.login-btn {
+  width: 100%;
+  border: none;
+  height: 56px;
+  border-radius: 14px;
+  background: #1f15d8;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 24px;
+  color: #777;
+  font-size: 14px;
+}
+
+.signup-text a {
+  color: #2b1de0;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.divider {
+  text-align: center;
+  margin: 35px 0 20px;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 34%;
+  height: 1px;
+  background: #d8d8d8;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.divider span {
+  font-size: 12px;
+  color: #999;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-button {
+  flex: 1;
+  height: 52px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.social-button:hover {
+  background: #f8f9ff;
+  border-color: #cdd4ea;
+}
+
+.social-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .login-wrapper {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+
+  .left-panel {
+    min-height: 50vh;
+  }
+
+  .right-panel {
+    padding: 40px 20px;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 420px;
+  }
+}

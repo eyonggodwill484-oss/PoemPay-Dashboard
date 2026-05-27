@@ -1,0 +1,54 @@
+<div class="page-wrapper">
+  <div class="card">
+    <h2>Create Admin Account</h2>
+    <p class="subtitle">Provide your name, email and a secure password.</p>
+
+    <form (submit)="onCreate(nameInput.value, emailInput.value, passwordInput.value, $event)">
+      <app-field-set>
+        <app-field-group>
+          <app-field>
+            <app-field-label htmlFor="name">Full name</app-field-label>
+            <app-input id="name" placeholder="Jane Doe" #nameInput="appInput"></app-input>
+          </app-field>
+
+          <app-field>
+            <app-field-label htmlFor="email">Email</app-field-label>
+            <app-input id="email" type="email" placeholder="admin@company.com" #emailInput="appInput"></app-input>
+          </app-field>
+
+          <app-field>
+            <app-field-label htmlFor="password">Password</app-field-label>
+            <app-input
+              id="password"
+              [type]="showPassword ? 'text' : 'password'"
+              placeholder="**********"
+              #passwordInput="appInput"
+            >
+              <button
+                class="input-icon-button right-slot"
+                type="button"
+                aria-pressed="false"
+                aria-label="Toggle password visibility"
+                (click)="togglePasswordVisibility()"
+              >
+                <ng-container *ngIf="showPassword; else showIcon">
+                  <app-eye-off-icon></app-eye-off-icon>
+                </ng-container>
+                <ng-template #showIcon>
+                  <app-eye-icon></app-eye-icon>
+                </ng-template>
+              </button>
+            </app-input>
+            <app-field-description>Use at least 8 characters and a mix of letters and numbers.</app-field-description>
+          </app-field>
+        </app-field-group>
+      </app-field-set>
+
+      <button type="button" class="primary-btn" (click)="onCreate(nameInput.value, emailInput.value, passwordInput.value, $event)">Create Account</button>
+    </form>
+
+    <div class="back-link">
+      <a routerLink="/">Back to sign in</a>
+    </div>
+  </div>
+</div>
