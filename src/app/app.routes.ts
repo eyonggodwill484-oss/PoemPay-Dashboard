@@ -3,11 +3,11 @@ import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './Admin_dashboard/dashboard.component';
-import { TransactionsComponent } from './pages/transactions.component';
+import { TransactionsComponent } from './Transactions/Transactions.component';
 import { AnalyticsComponent } from './pages/analytics.component';
 import { SettingsComponent } from './pages/settings.component';
 import { CustomerComponent } from './customer/customer.component';
-import { MerchantComponent } from './merchant/merchant.component';
+import { MerchantsComponent } from './merchant/merchant.components';
 
 
 export const routes: Routes = [
@@ -18,7 +18,7 @@ export const routes: Routes = [
   { path: 'Admin_dashboard', component: DashboardComponent },
   { path: 'admin-dashboard', component: DashboardComponent },
   { path: 'customer', component: CustomerComponent },
-  { path: 'merchant', component: MerchantComponent },
+  { path: 'merchant', component: MerchantsComponent },
   { path: 'transactions', component: TransactionsComponent },
   { path: 'analytics', component: AnalyticsComponent },
   { path: 'settings', component: SettingsComponent }

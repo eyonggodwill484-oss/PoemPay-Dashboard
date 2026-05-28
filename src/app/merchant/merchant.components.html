@@ -1,0 +1,240 @@
+<div class="app-wrapper">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">
+        <span class="logo-text">POEM</span>
+        <span class="logo-sub">Pay Admin</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <p class="nav-label">MAIN MENU</p>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">&#9783;</span>
+            Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">&#128100;</span>
+            Customer
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">&#127978;</span>
+            Merchants
+            <span class="active-dot"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">&#8646;</span>
+            Transactions
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">&#128683;</span>
+            Fraud Alerts
+            <span class="badge badge-red">8</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">&#9881;</span>
+            Settings
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">&#128276;</span>
+            Notifications
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="system-status">
+        <span class="status-dot online"></span>
+        <div>
+          <p class="status-title">System Online</p>
+          <p class="status-sub">All services operational</p>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-profile">
+        <div class="admin-avatar">AR</div>
+        <div class="admin-info">
+          <p class="admin-name">Admin Root</p>
+          <p class="admin-role">App Admin</p>
+        </div>
+        <button class="admin-menu-btn">&#8942;</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left"></div>
+      <div class="topbar-right">
+        <div class="search-box">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" [(ngModel)]="searchTerm" placeholder="Search merchants, categories..." class="search-input" />
+          <span class="search-kbd">⌘K</span>
+        </div>
+        <button class="notification-btn">
+          <span class="notif-icon">&#128276;</span>
+          <span class="notif-badge">3</span>
+        </button>
+        <div class="admin-topbar">
+          <div class="admin-avatar-top">AR</div>
+          <div>
+            <p class="admin-topbar-name">Admin Root</p>
+            <p class="admin-topbar-role">App Admin</p>
+          </div>
+          <span class="chevron">&#8964;</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-content">
+      <div class="page-header">
+        <h1 class="page-title">Merchants Management</h1>
+        <p class="page-subtitle">Verify and manage business partners</p>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <!-- Total Merchants -->
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon stat-icon-yellow">&#127978;</div>
+            <span class="stat-trend positive">&#8593; +2.8%</span>
+          </div>
+          <div class="stat-value">{{ totalMerchants }}</div>
+          <div class="stat-label">TOTAL MERCHANTS</div>
+          <div class="stat-bar stat-bar-yellow"></div>
+          <div class="stat-footer">+16 this week</div>
+        </div>
+
+        <!-- Verified Merchants -->
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon stat-icon-green">&#9989;</div>
+            <span class="stat-trend positive">&#8593; +5.4%</span>
+          </div>
+          <div class="stat-value">{{ verifiedMerchants }}</div>
+          <div class="stat-label">VERIFIED MERCHANTS</div>
+          <div class="stat-bar stat-bar-green"></div>
+          <div class="stat-footer">88% compliance rate</div>
+        </div>
+
+        <!-- Pending Verification -->
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon stat-icon-blue">&#128101;</div>
+            <span class="stat-urgent">24 urgent</span>
+          </div>
+          <div class="stat-value">{{ pendingMerchants }}</div>
+          <div class="stat-label">PENDING VERIFICATION</div>
+          <div class="stat-bar stat-bar-blue"></div>
+          <div class="stat-footer">Avg processing: 4.2h</div>
+        </div>
+
+        <!-- Suspended Merchants -->
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon stat-icon-red">&#10067;</div>
+            <span class="stat-trend negative">&#8593; +2.4%</span>
+          </div>
+          <div class="stat-value">{{ suspendedMerchants }}</div>
+          <div class="stat-label">SUSPENDED MERCHANTS</div>
+          <div class="stat-bar stat-bar-red"></div>
+          <div class="stat-footer">Policy violations detected</div>
+        </div>
+      </div>
+
+      <!-- Table Section -->
+      <div class="table-card">
+        <!-- Table Controls -->
+        <div class="table-controls">
+          <div class="table-search">
+            <span class="search-icon-sm">&#128269;</span>
+            <input type="text" placeholder="Search by name, ID or category..." class="table-search-input" />
+          </div>
+          <button class="filter-btn">
+            <span>&#9783;</span> Category
+          </button>
+          <button class="filter-btn">
+            <span>&#11044;</span> Status
+          </button>
+        </div>
+
+        <!-- Table -->
+        <table class="merchants-table">
+          <thead>
+            <tr>
+              <th>MERCHANT</th>
+              <th>CATEGORY</th>
+              <th>VERIFICATION</th>
+              <th>TOTAL VOLUME (XAF)</th>
+              <th>ONBOARDING</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+<tbody>
+  <tr *ngFor="let merchant of filteredMerchants">
+              <td class="merchant-cell">
+                <div class="merchant-icon" [ngStyle]="{'background': merchant.iconBg}">
+                  {{ merchant.iconText }}
+                </div>
+                <div>
+                  <p class="merchant-name">{{ merchant.name }}</p>
+                  <p class="merchant-id">{{ merchant.id }}</p>
+                </div>
+              </td>
+              <td class="category-cell">{{ merchant.category }}</td>
+              <td>
+                <span class="status-badge" [ngClass]="'status-' + merchant.verification.toLowerCase()">
+                  <span class="status-dot-sm"></span>
+                  {{ merchant.verification }}
+                </span>
+              </td>
+              <td class="volume-cell">{{ merchant.totalVolume }}</td>
+              <td class="date-cell">{{ merchant.onboardingDate }}</td>
+<td class="action-cell">
+  <button *ngIf="merchant.verification === 'Pending'" class="action-btn-verify">Verify</button>
+  <button *ngIf="merchant.verification === 'Verified'" class="action-btn-icon">&#9881;</button>
+  <button *ngIf="merchant.verification === 'Rejected'" class="action-btn-icon">&#8942;</button>
+</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <span class="pagination-info">Showing <strong>1-10</strong> of <strong>1,284</strong> merchants</span>
+          <div class="pagination-controls">
+            <button class="page-btn">&#8249;</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span class="page-ellipsis">...</span>
+            <button class="page-btn">128</button>
+            <button class="page-btn">&#8250;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

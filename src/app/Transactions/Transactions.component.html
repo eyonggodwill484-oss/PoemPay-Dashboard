@@ -1,0 +1,412 @@
+<!-- transactions.component.html -->
+<div class="app-layout">
+
+  <!-- ═══════════════════════════════════════════════════════
+       SIDEBAR
+  ═══════════════════════════════════════════════════════════ -->
+  <aside class="sidebar">
+    <!-- Logo -->
+    <div class="sidebar-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
+          <rect x="2" y="2" width="9" height="9" rx="2" fill="#fff" opacity=".9"/>
+          <rect x="13" y="2" width="9" height="9" rx="2" fill="#fff" opacity=".6"/>
+          <rect x="2" y="13" width="9" height="9" rx="2" fill="#fff" opacity=".6"/>
+          <rect x="13" y="13" width="9" height="9" rx="2" fill="#fff" opacity=".3"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">POEM</span>
+        <span class="logo-sub">Pay Admin</span>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="sidebar-nav">
+      <p class="nav-section-label">MAIN MENU</p>
+
+      <a class="nav-item" routerLink="/dashboard">
+        <svg viewBox="0 0 20 20" fill="none" width="17" height="17">
+          <rect x="2" y="2" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="11" y="2" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="2" y="11" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="11" y="11" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span>Dashboard</span>
+      </a>
+
+      <a class="nav-item" routerLink="/customer">
+        <svg viewBox="0 0 20 20" fill="none" width="17" height="17">
+          <circle cx="10" cy="7" r="3.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 17c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Users</span>
+        <span class="nav-badge">24.1k</span>
+      </a>
+
+      <a class="nav-item" routerLink="/merchant">
+        <svg viewBox="0 0 20 20" fill="none" width="17" height="17">
+          <path d="M3 7h14l-1.5 8H4.5L3 7z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M1 4h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="7.5" cy="17" r="1" fill="currentColor"/>
+          <circle cx="13.5" cy="17" r="1" fill="currentColor"/>
+        </svg>
+        <span>Merchants</span>
+        <span class="nav-badge">1,264</span>
+      </a>
+
+      <a class="nav-item nav-item--active" routerLink="/transactions">
+        <svg viewBox="0 0 20 20" fill="none" width="17" height="17">
+          <path d="M4 6h12M4 10h8M4 14h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Transactions</span>
+        <span class="nav-dot"></span>
+      </a>
+
+      <a class="nav-item nav-item--alert" routerLink="/fraud-alerts">
+        <svg viewBox="0 0 20 20" fill="none" width="17" height="17">
+          <path d="M10 2l8 14H2L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M10 8v4M10 14v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Fraud Alerts</span>
+        <span class="nav-badge nav-badge--red">7</span>
+      </a>
+
+      <a class="nav-item" routerLink="/settings">
+        <svg viewBox="0 0 20 20" fill="none" width="17" height="17">
+          <circle cx="10" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Settings</span>
+      </a>
+
+      <a class="nav-item" routerLink="/notifications">
+        <svg viewBox="0 0 20 20" fill="none" width="17" height="17">
+          <path d="M10 2a6 6 0 0 1 6 6c0 3 1 4 2 5H2c1-1 2-2 2-5a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 17a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span>Notifications</span>
+      </a>
+    </nav>
+
+    <!-- Footer -->
+    <div class="sidebar-footer">
+      <div class="system-status">
+        <span class="status-dot-green"></span>
+        <div>
+          <div class="status-title">System Online</div>
+          <div class="status-sub">All services operational</div>
+          <div class="status-bar"><div class="status-bar-fill"></div></div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-avatar">AR</div>
+        <div class="admin-info">
+          <div class="admin-name">Admin Root</div>
+          <div class="admin-role">Super Admin</div>
+        </div>
+        <button class="admin-more">
+          <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+            <circle cx="8" cy="3" r="1" fill="currentColor"/>
+            <circle cx="8" cy="8" r="1" fill="currentColor"/>
+            <circle cx="8" cy="13" r="1" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════════════════════ -->
+  <main class="main-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1 class="page-title">
+        Transactions –
+        <span *ngIf="activeTab === 'add'">Add Money (Single View)</span>
+        <span *ngIf="activeTab === 'send'">Send Money (Single View)</span>
+        <span *ngIf="activeTab === 'withdraw'">Withdraw Money (Updated)</span>
+      </h1>
+    </div>
+
+    <!-- ── Main Card ─────────────────────────────────────── -->
+    <div class="card">
+
+      <!-- Card Header -->
+      <div class="card-header">
+        <div class="card-header-left">
+          <h2 class="card-title">
+            <span *ngIf="activeTab !== 'withdraw'">Transactions History</span>
+            <span *ngIf="activeTab === 'withdraw'">Transaction History</span>
+          </h2>
+          <p class="card-subtitle">
+            <span *ngIf="activeTab === 'add'">Detailed log of all SmartPay activities</span>
+            <span *ngIf="activeTab === 'send'">Subtotal log of all financial activities</span>
+            <span *ngIf="activeTab === 'withdraw'">Detailed log of all fund withdrawal activities</span>
+          </p>
+        </div>
+        <div class="card-header-right">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 20 20" fill="none">
+              <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/>
+              <path d="m13.5 13.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <input type="text" [(ngModel)]="searchQuery"
+              [placeholder]="activeTab === 'withdraw' ? 'Search transactions, users…' : 'Search transactions…'"
+              class="search-input"/>
+            <span class="search-kbd" *ngIf="activeTab === 'withdraw'">⌘K</span>
+          </div>
+          <button class="btn-export" (click)="exportCSV()">
+            <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+              <path d="M8 10V2M8 10l-3-3M8 10l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            Export CSV
+          </button>
+          <button class="btn-icon">
+            <svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+              <circle cx="10" cy="4"  r="1.2" fill="currentColor"/>
+              <circle cx="10" cy="10" r="1.2" fill="currentColor"/>
+              <circle cx="10" cy="16" r="1.2" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn" [class.active]="activeTab === 'send'"     (click)="setTab('send')">Send Money</button>
+        <button class="tab-btn" [class.active]="activeTab === 'add'"      (click)="setTab('add')">Add Money</button>
+        <button class="tab-btn" [class.active]="activeTab === 'withdraw'" (click)="setTab('withdraw')">Withdraw Money</button>
+      </div>
+
+      <!-- ── ADD MONEY ─────────────────────────────────────── -->
+      <ng-container *ngIf="activeTab === 'add'">
+        <div class="stats-row">
+          <div class="stat-card stat-green">
+            <div class="stat-top">
+              <div class="stat-icon bg-green"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M10 4v12M4 10h12" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/></svg></div>
+              <span class="stat-badge badge-up">{{ addMoneyStats.totalAdded.change }}</span>
+            </div>
+            <div class="stat-value">{{ addMoneyStats.totalAdded.value }}</div>
+            <div class="stat-label">{{ addMoneyStats.totalAdded.label }}</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-green" style="width:75%"></div></div>
+          </div>
+          <div class="stat-card stat-blue">
+            <div class="stat-top">
+              <div class="stat-icon bg-blue"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><circle cx="10" cy="10" r="7" stroke="#2563eb" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="stat-badge badge-blue">{{ addMoneyStats.deposits.rate }}</span>
+            </div>
+            <div class="stat-value">{{ addMoneyStats.deposits.value }}</div>
+            <div class="stat-label">{{ addMoneyStats.deposits.label }}</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-blue" style="width:90%"></div></div>
+          </div>
+          <div class="stat-card stat-red">
+            <div class="stat-top">
+              <div class="stat-icon bg-red"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><circle cx="10" cy="10" r="7" stroke="#dc2626" stroke-width="1.5"/><path d="M10 7v4M10 13v.5" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+              <span class="stat-badge badge-down">{{ addMoneyStats.failed.change }}</span>
+            </div>
+            <div class="stat-value">{{ addMoneyStats.failed.value }}</div>
+            <div class="stat-label">{{ addMoneyStats.failed.label }}</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-red" style="width:15%"></div></div>
+          </div>
+          <div class="stat-card stat-orange">
+            <div class="stat-top">
+              <div class="stat-icon bg-orange"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M10 2l2.5 5 5.5.8-4 3.9.9 5.5L10 14.5 5.1 17.2l.9-5.5L2 7.8l5.5-.8L10 2z" fill="#f97316"/></svg></div>
+              <span class="stat-badge badge-orange">{{ addMoneyStats.funnel.status }}</span>
+            </div>
+            <div class="stat-value">{{ addMoneyStats.funnel.value }}</div>
+            <div class="stat-label">{{ addMoneyStats.funnel.label }}</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-orange" style="width:64%"></div></div>
+          </div>
+        </div>
+        <div class="filters-row">
+          <input type="text" placeholder="Filter by ID, Merchant or User…" class="filter-input" [(ngModel)]="searchQuery"/>
+          <button class="filter-btn">Date Range</button>
+          <button class="filter-btn">Amount Range</button>
+          <button class="filter-btn">Payment Method</button>
+          <button class="filter-link">+ More Filters</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Transaction ID</th><th>User</th><th>Method</th><th>Amount (XAF)</th><th>Status</th><th>Timestamp</th></tr></thead>
+            <tbody>
+              <tr *ngFor="let tx of filteredAddMoney">
+                <td class="tx-id">{{ tx.id }}</td>
+                <td><div class="user-cell"><div class="avatar">{{ getInitials(tx.user!.name) }}</div><div><div class="user-name">{{ tx.user!.name }}</div><div class="user-role">{{ tx.user!.role }}</div></div></div></td>
+                <td><div class="method-cell"><span class="method-dot" [class]="'dot-' + tx.methodIcon"></span>{{ tx.method }}</div></td>
+                <td class="amount-cell">{{ formatAmount(tx.amount) }}</td>
+                <td><span class="status-badge" [class]="getStatusClass(tx.status)">{{ getStatusLabel(tx.status) }}</span></td>
+                <td class="time-cell">{{ tx.timestamp }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ng-container>
+
+      <!-- ── SEND MONEY ─────────────────────────────────────── -->
+      <ng-container *ngIf="activeTab === 'send'">
+        <div class="stats-row">
+          <div class="stat-card stat-green">
+            <div class="stat-top">
+              <div class="stat-icon bg-green"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 10h12M10 4l6 6-6 6" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="stat-badge badge-up">{{ sendMoneyStats.totalSent.change }}</span>
+            </div>
+            <div class="stat-value">{{ sendMoneyStats.totalSent.value }}</div>
+            <div class="stat-label">{{ sendMoneyStats.totalSent.label }}</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-green" style="width:68%"></div></div>
+          </div>
+          <div class="stat-card stat-blue">
+            <div class="stat-top">
+              <div class="stat-icon bg-blue"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><circle cx="10" cy="10" r="7" stroke="#2563eb" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="stat-badge badge-blue">{{ sendMoneyStats.transactions.rate }}</span>
+            </div>
+            <div class="stat-value">{{ sendMoneyStats.transactions.value }}</div>
+            <div class="stat-label">{{ sendMoneyStats.transactions.label }}</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-blue" style="width:98%"></div></div>
+          </div>
+          <div class="stat-card stat-red">
+            <div class="stat-top">
+              <div class="stat-icon bg-red"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M5 5l10 10M15 5L5 15" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+              <span class="stat-badge badge-down">{{ sendMoneyStats.failed.change }}</span>
+            </div>
+            <div class="stat-value">{{ sendMoneyStats.failed.value }}</div>
+            <div class="stat-label">{{ sendMoneyStats.failed.label }}</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-red" style="width:10%"></div></div>
+          </div>
+          <div class="stat-card stat-orange">
+            <div class="stat-top">
+              <div class="stat-icon bg-orange-light"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><circle cx="10" cy="10" r="7" stroke="#f97316" stroke-width="1.5"/><path d="M10 7v4M10 13.5v.1" stroke="#f97316" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+              <span class="stat-badge badge-down">{{ sendMoneyStats.pending.change }}</span>
+            </div>
+            <div class="stat-value">{{ sendMoneyStats.pending.value }}</div>
+            <div class="stat-label">{{ sendMoneyStats.pending.label }}</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-orange" style="width:5%"></div></div>
+          </div>
+        </div>
+        <div class="filters-row">
+          <input type="text" placeholder="Filter…" class="filter-input" [(ngModel)]="searchQuery"/>
+          <button class="filter-btn">Date</button>
+          <button class="filter-btn">Status</button>
+          <button class="filter-btn">More</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Transaction ID</th><th>From</th><th>To</th><th>Method</th><th>Amount (XAF)</th><th>Status</th><th>Time</th></tr></thead>
+            <tbody>
+              <tr *ngFor="let tx of filteredSendMoney">
+                <td class="tx-id">{{ tx.id }}</td>
+                <td><div class="user-cell"><div class="avatar avatar-sm">{{ getInitials(tx.from!) }}</div><span class="user-name">{{ tx.from }}</span></div></td>
+                <td class="user-name">{{ tx.to }}</td>
+                <td><div class="method-cell"><span class="method-dot dot-qr"></span>{{ tx.method }}</div></td>
+                <td class="amount-cell">{{ formatAmount(tx.amount) }}</td>
+                <td><span class="status-badge" [class]="getStatusClass(tx.status)">{{ getStatusLabel(tx.status) }}</span></td>
+                <td class="time-cell">{{ tx.timestamp }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination-row">
+          <span class="page-info">Showing 1–5 of 45</span>
+          <div class="page-controls">
+            <button class="page-btn" [disabled]="currentPage===1" (click)="currentPage=currentPage-1">‹</button>
+            <button class="page-btn active">{{ currentPage }}</button>
+            <button class="page-btn" (click)="currentPage=currentPage+1">›</button>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- ── WITHDRAW MONEY ─────────────────────────────────── -->
+      <ng-container *ngIf="activeTab === 'withdraw'">
+        <div class="stats-row">
+          <div class="stat-card stat-green">
+            <div class="stat-top">
+              <div class="stat-icon bg-green"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 14h12M10 4v8M4 8l6-4 6 4" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="stat-badge badge-up">{{ withdrawStats.totalWithdrawn.change }}</span>
+            </div>
+            <div class="stat-value">{{ withdrawStats.totalWithdrawn.value }}</div>
+            <div class="stat-label">{{ withdrawStats.totalWithdrawn.label }}</div>
+            <div class="stat-sub">Total Volume (XAF) – Last 30 days</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-green" style="width:60%"></div></div>
+          </div>
+          <div class="stat-card stat-yellow">
+            <div class="stat-top">
+              <div class="stat-icon bg-yellow"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M10 2v4M10 14v4M2 10h4M14 10h4" stroke="#ca8a04" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+              <span class="stat-badge badge-action">{{ withdrawStats.pending.status }}</span>
+            </div>
+            <div class="stat-value">{{ withdrawStats.pending.value }}</div>
+            <div class="stat-label">{{ withdrawStats.pending.label }}</div>
+            <div class="stat-sub">Requests awaiting verification</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-yellow" style="width:45%"></div></div>
+          </div>
+          <div class="stat-card stat-blue">
+            <div class="stat-top">
+              <div class="stat-icon bg-blue"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><circle cx="10" cy="10" r="7" stroke="#2563eb" stroke-width="1.5"/><path d="M10 7v3l2 2" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <span class="stat-badge badge-blue">{{ withdrawStats.speed.rate }}</span>
+            </div>
+            <div class="stat-value">{{ withdrawStats.speed.value }}</div>
+            <div class="stat-label">{{ withdrawStats.speed.label }}</div>
+            <div class="stat-sub">Avg. time to completion</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-blue" style="width:85%"></div></div>
+          </div>
+          <div class="stat-card stat-red">
+            <div class="stat-top">
+              <div class="stat-icon bg-red"><svg viewBox="0 0 20 20" fill="none" width="16" height="16"><circle cx="10" cy="10" r="7" stroke="#dc2626" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+              <span class="stat-badge badge-down">{{ withdrawStats.declined.change }}</span>
+            </div>
+            <div class="stat-value">{{ withdrawStats.declined.value }}</div>
+            <div class="stat-label">{{ withdrawStats.declined.label }}</div>
+            <div class="stat-sub">Failed or blocked withdrawals</div>
+            <div class="stat-bar"><div class="stat-bar-fill bg-red" style="width:8%"></div></div>
+          </div>
+        </div>
+        <div class="filters-row filters-row-withdraw">
+          <div class="tab-pills">
+            <button class="pill-btn">All History</button>
+            <button class="pill-btn pill-active">Withdraw Money</button>
+          </div>
+          <div class="filter-group-right">
+            <div class="search-box search-box-sm">
+              <svg class="search-icon" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="m13.5 13.5 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <input type="text" placeholder="Filter by user or provider…" class="search-input" [(ngModel)]="searchQuery"/>
+            </div>
+            <button class="filter-btn">Date Range</button>
+            <button class="filter-btn">Provider</button>
+            <button class="filter-btn">More Filters</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Withdrawal ID</th><th>User Account</th><th>Provider</th><th>Amount (XAF)</th><th>Status</th><th>Timestamp</th></tr></thead>
+            <tbody>
+              <tr *ngFor="let tx of filteredWithdraw">
+                <td class="tx-id">{{ tx.id }}</td>
+                <td><div class="user-cell"><div class="avatar avatar-sm">{{ getInitials(tx.userAccount!) }}</div><div class="user-name">{{ tx.userAccount }}</div></div></td>
+                <td><div class="provider-cell"><span class="provider-icon" [class]="'provider-' + tx.providerIcon">{{ tx.providerIcon === 'mtn' ? 'MTN' : 'O' }}</span>{{ tx.provider }}</div></td>
+                <td class="amount-cell">{{ formatAmount(tx.amount) }}</td>
+                <td><span class="status-badge status-dot" [class]="getStatusClass(tx.status)"><span class="dot"></span>{{ getStatusLabel(tx.status) }}</span></td>
+                <td class="time-cell">{{ tx.timestamp }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination-row">
+          <span class="page-info">Showing 1–15 of 2,412 withdrawals</span>
+          <div class="page-controls">
+            <button class="page-btn" [disabled]="currentPage===1" (click)="currentPage=currentPage-1">‹</button>
+            <button class="page-btn active">{{ currentPage }}</button>
+            <button class="page-btn" (click)="currentPage=2">2</button>
+            <button class="page-btn" (click)="currentPage=3">3</button>
+            <span class="page-ellipsis">…</span>
+            <button class="page-btn">161</button>
+            <button class="page-btn" (click)="currentPage=currentPage+1">›</button>
+          </div>
+        </div>
+      </ng-container>
+
+    </div><!-- /card -->
+  </main>
+</div>

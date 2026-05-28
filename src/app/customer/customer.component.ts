@@ -40,6 +40,7 @@ interface NavItem {
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent {
+  isSidebarCollapsed: boolean = false;
 
   navItems: NavItem[] = [
     { icon: 'dashboard', label: 'Dashboard', active: false },
@@ -199,5 +200,9 @@ export class CustomerComponent {
     }
     return [1, '...', this.currentPage - 1, this.currentPage,
             this.currentPage + 1, '...', this.totalPages];
+  }
+
+  toggleSidebar(): void {
+    this.isSidebarCollapsed = !this.isSidebarCollapsed;
   }
 }
